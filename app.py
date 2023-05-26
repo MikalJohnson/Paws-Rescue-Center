@@ -19,6 +19,10 @@ def about():
 
 @app.route("/details/<int:pet_id>")
 def pet_details(pet_id):
+    # The iter function will iterate through the list.
+    # The next function will store the value, and if there isnt
+    # the default value is set to None.
+    iter(str(pet_id))
     pet = next((pet for pet in pets if pet["id"] == pet_id), None) 
     if pet is None: 
         abort(404, description="No Pet was Found with the given ID")
