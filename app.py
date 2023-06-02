@@ -17,6 +17,10 @@ def index():
 def about():
     return render_template("about.html")
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    return render_template("login.html")
+
 @app.route("/details/<int:pet_id>")
 def pet_details(pet_id):
     # The iter function will iterate through the list.
