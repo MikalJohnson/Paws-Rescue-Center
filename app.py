@@ -1,6 +1,8 @@
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request
+from forms import LoginForm
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "Jackson123"
 
 pets = [
             {"id": 1, "name": "Nelly", "age": "5 weeks", "bio": "I am a tiny kitten rescued by the good people at Paws Rescue Center. I love squeaky toys and cuddles."},
@@ -19,7 +21,8 @@ def about():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
+    form = LoginForm()
+    return render_template("login.html", form=form)
 
 @app.route("/details/<int:pet_id>")
 def pet_details(pet_id):
