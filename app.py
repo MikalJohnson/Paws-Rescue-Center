@@ -1,5 +1,5 @@
 from flask import Flask, render_template, abort, request
-from forms import LoginForm
+from forms import SignupForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "Jackson123"
@@ -19,10 +19,10 @@ def index():
 def about():
     return render_template("about.html")
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    form = LoginForm()
-    return render_template("login.html", form=form)
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    form = SignupForm()
+    return render_template("signup.html", form=form)
 
 @app.route("/details/<int:pet_id>")
 def pet_details(pet_id):
