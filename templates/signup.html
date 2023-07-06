@@ -1,28 +1,37 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block title %} Sign Up {% endblock %}
+{% block title %}
+Sign Up
+{% endblock %}
 
-{% block head %} Sign Up {% endblock %}
+{% block heading %}
+Please Sign Up
+{% endblock %}
 
 {% block content %}
-
-<form action = "{{url_for('signup')}}" method = 'POST'>
-    {{form.fullname.label}}<br>
-    {{form.fullname}}
+{%if form %}
+<form action="{{url_for('signup')}}" method="POST">
+    {{ form.fullName.label }}
     <br>
-    {{form.email.label}}<br>
-    {{form.email}}
+    {{ form.fullName }}
     <br>
-    {{form.password.label}}<br>
-    {{form.password}}
+    {{ form.email.label }}
     <br>
-    {{form.c_password.label}}<br>
-    {{form.c_password}}
+    {{ form.email }}
     <br>
-    {{form.csrf_token}}
-    {{form.submit}}
-
-
+    {{ form.password.label }}
+    <br>
+    {{ form.password }}
+    <br>
+    {{ form.confirmPassword.label }}
+    <br>
+    {{ form.confirmPassword }}
+    <br>
+    {{ form.submit }}
+    <br>
+    {{ form.csrf_token }}
 </form>
-
+{% endif %}
 {% endblock %}
+
+
