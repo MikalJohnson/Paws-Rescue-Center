@@ -5,7 +5,7 @@
 {% block content %} 
     <div style="float:left; border-style:double;">
         <img src= "{{url_for('static', filename = pet.id|string+".jpg")}}" height="350" ><br>
-        <button style="background-color:tomato" onclick="location.href='{{ url_for('delete_pet', pet_id = pet.id)}}'"> Delete Pet </button>
+        <button style="background-color:tomato" onclick="location.href='{{ url_for(delete_pet, pet_id = pet.id)}}'"> Delete Pet </button>
     </div> 
     <div style="float:left; margin:10px;">
         <h1 class="title">{{ pet.name }}</h1>
